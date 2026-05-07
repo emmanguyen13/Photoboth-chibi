@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1800" viewBox="0 0 1200 1800">
+  <defs>
+    <linearGradient id="pinkBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFE0EC"/>
+      <stop offset="1" stop-color="#FFC4D9"/>
+    </linearGradient>
+    <symbol id="kawaiiCat" viewBox="-100 -100 200 200">
+      <ellipse cx="0" cy="20" rx="65" ry="55" fill="#fff" stroke="#FF7AA2" stroke-width="4"/>
+      <path d="M-55,-25 L-40,-65 L-15,-30 Z" fill="#fff" stroke="#FF7AA2" stroke-width="4"/>
+      <path d="M55,-25 L40,-65 L15,-30 Z" fill="#fff" stroke="#FF7AA2" stroke-width="4"/>
+      <path d="M-50,-30 L-40,-55 L-22,-32 Z" fill="#FFB6C1"/>
+      <path d="M50,-30 L40,-55 L22,-32 Z" fill="#FFB6C1"/>
+      <ellipse cx="-22" cy="10" rx="6" ry="9" fill="#1a1a1a"/>
+      <circle cx="-19" cy="6" r="2.5" fill="#fff"/>
+      <ellipse cx="22" cy="10" rx="6" ry="9" fill="#1a1a1a"/>
+      <circle cx="25" cy="6" r="2.5" fill="#fff"/>
+      <ellipse cx="0" cy="22" rx="5" ry="4" fill="#FFB347"/>
+      <path d="M-12,30 Q0,38 12,30" fill="none" stroke="#1a1a1a" stroke-width="3" stroke-linecap="round"/>
+      <ellipse cx="-40" cy="20" rx="10" ry="6" fill="#FFB6C1" opacity="0.7"/>
+      <ellipse cx="40" cy="20" rx="10" ry="6" fill="#FFB6C1" opacity="0.7"/>
+      <g transform="translate(35,-35)">
+        <path d="M-8,0 Q-12,-10 -4,-8 Q0,-15 4,-8 Q12,-10 8,0 Q4,8 0,4 Q-4,8 -8,0 Z" fill="#FF6B9D" stroke="#C0392B" stroke-width="2"/>
+        <circle cx="0" cy="-2" r="2" fill="#fff"/>
+      </g>
+    </symbol>
+    <symbol id="bunny" viewBox="-100 -120 200 240">
+      <ellipse cx="-30" cy="-60" rx="18" ry="55" fill="#fff" stroke="#E91E63" stroke-width="3"/>
+      <ellipse cx="30" cy="-60" rx="18" ry="55" fill="#fff" stroke="#E91E63" stroke-width="3"/>
+      <ellipse cx="-30" cy="-65" rx="10" ry="40" fill="#FFB6C1"/>
+      <ellipse cx="30" cy="-65" rx="10" ry="40" fill="#FFB6C1"/>
+      <ellipse cx="0" cy="20" rx="65" ry="60" fill="#fff" stroke="#E91E63" stroke-width="4"/>
+      <ellipse cx="-22" cy="10" rx="5" ry="8" fill="#1a1a1a"/>
+      <circle cx="-20" cy="6" r="2" fill="#fff"/>
+      <ellipse cx="22" cy="10" rx="5" ry="8" fill="#1a1a1a"/>
+      <circle cx="24" cy="6" r="2" fill="#fff"/>
+      <path d="M-3,22 L0,28 L3,22" fill="#FF8FAB" stroke="#E91E63" stroke-width="2"/>
+      <path d="M-10,32 Q0,40 10,32" fill="none" stroke="#1a1a1a" stroke-width="3" stroke-linecap="round"/>
+      <ellipse cx="-40" cy="22" rx="10" ry="6" fill="#FFB6C1" opacity="0.7"/>
+      <ellipse cx="40" cy="22" rx="10" ry="6" fill="#FFB6C1" opacity="0.7"/>
+    </symbol>
+    <symbol id="star" viewBox="-30 -30 60 60">
+      <path d="M0,-25 L7,-8 L25,-8 L11,3 L17,22 L0,11 L-17,22 L-11,3 L-25,-8 L-7,-8 Z" fill="#FFD700" stroke="#FFA500" stroke-width="2"/>
+    </symbol>
+    <symbol id="heart" viewBox="-30 -30 60 60">
+      <path d="M0,18 C-25,0 -25,-22 -12,-22 C-5,-22 0,-15 0,-10 C0,-15 5,-22 12,-22 C25,-22 25,0 0,18 Z" fill="#FF6B9D" stroke="#E91E63" stroke-width="2"/>
+    </symbol>
+    <symbol id="cloud" viewBox="-50 -25 100 50">
+      <path d="M-40,10 Q-50,10 -50,0 Q-50,-10 -40,-10 Q-40,-20 -25,-20 Q-15,-25 0,-20 Q15,-25 25,-20 Q40,-20 40,-10 Q50,-10 50,0 Q50,10 40,10 Z" fill="#fff" stroke="#FF7AA2" stroke-width="3"/>
+    </symbol>
+    <symbol id="bow" viewBox="-30 -20 60 40">
+      <path d="M-25,-15 L-5,0 L-25,15 Z" fill="#FF6B9D" stroke="#C0392B" stroke-width="2"/>
+      <path d="M25,-15 L5,0 L25,15 Z" fill="#FF6B9D" stroke="#C0392B" stroke-width="2"/>
+      <circle cx="0" cy="0" r="6" fill="#FFB6C1" stroke="#C0392B" stroke-width="2"/>
+    </symbol>
+  </defs>
+  <rect width="1200" height="1800" fill="url(#pinkBg)"/>
+  <rect x="80" y="200" width="1040" height="1340" fill="#fff" rx="20"/>
+
+  <!-- Top decorations -->
+  <use href="#kawaiiCat" x="120" y="60" width="180" height="180"/>
+  <use href="#heart" x="320" y="100" width="60" height="60"/>
+  <use href="#bow" x="400" y="130" width="80" height="60"/>
+  <use href="#star" x="510" y="100" width="60" height="60"/>
+  <use href="#cloud" x="600" y="120" width="100" height="60"/>
+  <use href="#star" x="730" y="100" width="50" height="50"/>
+  <use href="#bow" x="800" y="130" width="80" height="60"/>
+  <use href="#heart" x="900" y="100" width="60" height="60"/>
+  <use href="#bunny" x="970" y="40" width="180" height="220"/>
+
+  <!-- Left side -->
+  <use href="#heart" x="20" y="400" width="60" height="60"/>
+  <use href="#star" x="30" y="540" width="50" height="50"/>
+  <use href="#bow" x="15" y="680" width="80" height="60"/>
+  <use href="#heart" x="20" y="820" width="60" height="60"/>
+  <use href="#cloud" x="10" y="960" width="100" height="60"/>
+  <use href="#star" x="30" y="1100" width="50" height="50"/>
+  <use href="#heart" x="20" y="1240" width="60" height="60"/>
+  <use href="#bow" x="15" y="1380" width="80" height="60"/>
+
+  <!-- Right side -->
+  <use href="#bow" x="1105" y="400" width="80" height="60"/>
+  <use href="#heart" x="1120" y="540" width="60" height="60"/>
+  <use href="#star" x="1125" y="680" width="50" height="50"/>
+  <use href="#bow" x="1105" y="820" width="80" height="60"/>
+  <use href="#heart" x="1120" y="960" width="60" height="60"/>
+  <use href="#cloud" x="1090" y="1100" width="100" height="60"/>
+  <use href="#star" x="1125" y="1240" width="50" height="50"/>
+  <use href="#heart" x="1120" y="1380" width="60" height="60"/>
+
+  <!-- Bottom -->
+  <use href="#bunny" x="80" y="1530" width="170" height="220"/>
+  <use href="#heart" x="270" y="1620" width="60" height="60"/>
+  <use href="#star" x="350" y="1620" width="50" height="50"/>
+  <use href="#bow" x="430" y="1640" width="80" height="60"/>
+  <use href="#cloud" x="540" y="1620" width="100" height="60"/>
+  <use href="#bow" x="670" y="1640" width="80" height="60"/>
+  <use href="#star" x="780" y="1620" width="50" height="50"/>
+  <use href="#heart" x="850" y="1620" width="60" height="60"/>
+  <use href="#kawaiiCat" x="940" y="1550" width="180" height="180"/>
+
+  <!-- Sparkle dots -->
+  <g fill="#FF6B9D">
+    <circle cx="150" cy="500" r="4"/>
+    <circle cx="1050" cy="700" r="4"/>
+    <circle cx="180" cy="900" r="4"/>
+    <circle cx="1080" cy="1100" r="4"/>
+    <circle cx="160" cy="1300" r="4"/>
+  </g>
+</svg>

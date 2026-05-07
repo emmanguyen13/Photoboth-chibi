@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1800" viewBox="0 0 1200 1800">
+  <defs>
+    <linearGradient id="iceBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#E0F4FF"/>
+      <stop offset="0.5" stop-color="#B8E0F5"/>
+      <stop offset="1" stop-color="#9DC8E8"/>
+    </linearGradient>
+    <radialGradient id="snowGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+    <symbol id="snowflake" viewBox="-50 -50 100 100">
+      <g stroke="#5DADE2" stroke-width="3" stroke-linecap="round" fill="none">
+        <line x1="0" y1="-45" x2="0" y2="45"/>
+        <line x1="-45" y1="0" x2="45" y2="0"/>
+        <line x1="-32" y1="-32" x2="32" y2="32"/>
+        <line x1="-32" y1="32" x2="32" y2="-32"/>
+        <path d="M0,-45 L-8,-35 M0,-45 L8,-35"/>
+        <path d="M0,45 L-8,35 M0,45 L8,35"/>
+        <path d="M-45,0 L-35,-8 M-45,0 L-35,8"/>
+        <path d="M45,0 L35,-8 M45,0 L35,8"/>
+        <path d="M-32,-32 L-22,-30 M-32,-32 L-30,-22"/>
+        <path d="M32,32 L22,30 M32,32 L30,22"/>
+        <path d="M-32,32 L-22,30 M-32,32 L-30,22"/>
+        <path d="M32,-32 L22,-30 M32,-32 L30,-22"/>
+      </g>
+      <circle cx="0" cy="0" r="6" fill="#fff" stroke="#5DADE2" stroke-width="2"/>
+    </symbol>
+    <symbol id="chibiPrincess" viewBox="-100 -120 200 240">
+      <ellipse cx="0" cy="105" rx="65" ry="15" fill="#5DADE2" opacity="0.3"/>
+      <path d="M-50,100 L-35,30 L35,30 L50,100 Z" fill="#A9DFFF" stroke="#5DADE2" stroke-width="3"/>
+      <path d="M-35,30 Q0,25 35,30 L30,55 Q0,60 -30,55 Z" fill="#C5E8FF" stroke="#5DADE2" stroke-width="2"/>
+      <ellipse cx="0" cy="-30" rx="55" ry="60" fill="#FFE4D6" stroke="#D4A373" stroke-width="3"/>
+      <circle cx="-18" cy="-30" r="6" fill="#1a1a1a"/>
+      <circle cx="-15" cy="-33" r="2" fill="#fff"/>
+      <circle cx="18" cy="-30" r="6" fill="#1a1a1a"/>
+      <circle cx="21" cy="-33" r="2" fill="#fff"/>
+      <ellipse cx="-25" cy="-15" rx="8" ry="4" fill="#FFB6C1" opacity="0.6"/>
+      <ellipse cx="25" cy="-15" rx="8" ry="4" fill="#FFB6C1" opacity="0.6"/>
+      <path d="M-8,-10 Q0,-5 8,-10" fill="none" stroke="#C0392B" stroke-width="3" stroke-linecap="round"/>
+      <path d="M-55,-50 Q-70,-20 -60,30 Q-45,40 -40,20 Q-50,0 -45,-30 Z" fill="#F4D03F" stroke="#D4A017" stroke-width="2"/>
+      <path d="M55,-50 Q70,-20 60,30 Q45,40 40,20 Q50,0 45,-30 Z" fill="#F4D03F" stroke="#D4A017" stroke-width="2"/>
+      <path d="M-40,-75 L-25,-95 L-10,-78 L0,-100 L10,-78 L25,-95 L40,-75 Z" fill="#85C1E9" stroke="#5DADE2" stroke-width="3"/>
+      <circle cx="0" cy="-90" r="4" fill="#fff"/>
+    </symbol>
+    <symbol id="iceCrystal" viewBox="-30 -50 60 100">
+      <path d="M0,-45 L20,-15 L15,40 L0,45 L-15,40 L-20,-15 Z" fill="#A9DFFF" stroke="#5DADE2" stroke-width="2" opacity="0.85"/>
+      <path d="M0,-45 L0,45" stroke="#fff" stroke-width="2" opacity="0.6"/>
+      <path d="M-15,-20 L15,-20" stroke="#fff" stroke-width="1.5" opacity="0.6"/>
+    </symbol>
+  </defs>
+  <rect width="1200" height="1800" fill="url(#iceBg)"/>
+  <circle cx="200" cy="200" r="180" fill="url(#snowGlow)"/>
+  <circle cx="1000" cy="1500" r="220" fill="url(#snowGlow)"/>
+  <rect x="80" y="200" width="1040" height="1340" fill="#fff" rx="20"/>
+
+  <!-- Top decorations -->
+  <use href="#snowflake" x="100" y="80" width="120" height="120"/>
+  <use href="#chibiPrincess" x="280" y="40" width="200" height="240"/>
+  <use href="#snowflake" x="520" y="100" width="80" height="80"/>
+  <use href="#snowflake" x="620" y="60" width="100" height="100"/>
+  <use href="#iceCrystal" x="740" y="100" width="60" height="100"/>
+  <use href="#snowflake" x="820" y="80" width="90" height="90"/>
+  <use href="#chibiPrincess" x="960" y="40" width="200" height="240"/>
+
+  <!-- Left side -->
+  <use href="#snowflake" x="20" y="400" width="80" height="80"/>
+  <use href="#iceCrystal" x="30" y="600" width="50" height="80"/>
+  <use href="#snowflake" x="10" y="800" width="100" height="100"/>
+  <use href="#snowflake" x="30" y="1000" width="70" height="70"/>
+  <use href="#iceCrystal" x="20" y="1200" width="60" height="100"/>
+  <use href="#snowflake" x="20" y="1400" width="80" height="80"/>
+
+  <!-- Right side -->
+  <use href="#snowflake" x="1100" y="400" width="80" height="80"/>
+  <use href="#iceCrystal" x="1120" y="600" width="50" height="80"/>
+  <use href="#snowflake" x="1090" y="800" width="100" height="100"/>
+  <use href="#snowflake" x="1110" y="1000" width="70" height="70"/>
+  <use href="#iceCrystal" x="1120" y="1200" width="60" height="100"/>
+  <use href="#snowflake" x="1100" y="1400" width="80" height="80"/>
+
+  <!-- Bottom -->
+  <use href="#snowflake" x="100" y="1560" width="90" height="90"/>
+  <use href="#iceCrystal" x="220" y="1580" width="60" height="100"/>
+  <use href="#snowflake" x="320" y="1570" width="80" height="80"/>
+  <use href="#chibiPrincess" x="450" y="1530" width="180" height="220" transform="scale(-1,1) translate(-1080,0)"/>
+  <use href="#snowflake" x="680" y="1570" width="80" height="80"/>
+  <use href="#iceCrystal" x="780" y="1580" width="60" height="100"/>
+  <use href="#snowflake" x="880" y="1570" width="90" height="90"/>
+  <use href="#iceCrystal" x="990" y="1580" width="60" height="100"/>
+  <use href="#snowflake" x="1080" y="1570" width="80" height="80"/>
+
+  <!-- Sparkles -->
+  <g fill="#fff">
+    <circle cx="150" cy="500" r="3"/>
+    <circle cx="1050" cy="700" r="4"/>
+    <circle cx="180" cy="900" r="3"/>
+    <circle cx="1080" cy="1100" r="3"/>
+    <circle cx="160" cy="1300" r="4"/>
+  </g>
+</svg>

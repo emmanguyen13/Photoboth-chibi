@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+.Python
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+
+# Environment
+.env
+.env.local
+
+# Photos captured during testing/events (chị giữ riêng, không push)
+output/
+*.jpg
+*.jpeg
+!assets/**/*.jpg
+
+# Built frame PNGs (regenerate from SVG)
+assets/frames/*/frame.png
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo

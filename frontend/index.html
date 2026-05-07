@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<title>📸 Photobooth Sinh Nhật</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<!-- Ambient floating decorations -->
+<div class="ambient" aria-hidden="true">
+  <span class="float f1">🦖</span>
+  <span class="float f2">❄️</span>
+  <span class="float f3">🎀</span>
+  <span class="float f4">🌟</span>
+  <span class="float f5">💖</span>
+  <span class="float f6">✨</span>
+  <span class="float f7">🍃</span>
+  <span class="float f8">☁️</span>
+</div>
+
+<!-- ===== Screen 1: Theme picker ===== -->
+<section id="screen-theme" class="screen active">
+  <header class="hero">
+    <div class="hero-tag">📸 PHOTOBOOTH</div>
+    <h1 class="hero-title">Chọn Style <span class="wiggle">Của Bạn</span></h1>
+    <p class="hero-sub">Chạm vào hình bạn thích nhất nha~ ✨</p>
+  </header>
+
+  <div class="theme-grid">
+    <button class="theme-card theme-dino" data-theme="dinosaur">
+      <div class="card-bg"></div>
+      <div class="card-emoji">🦖</div>
+      <div class="card-content">
+        <div class="card-name">Khủng Long</div>
+        <div class="card-tag">Rawr! Cực ngầu</div>
+      </div>
+      <div class="card-cta">Chọn →</div>
+    </button>
+
+    <button class="theme-card theme-frozen" data-theme="frozen">
+      <div class="card-bg"></div>
+      <div class="card-emoji">❄️</div>
+      <div class="card-content">
+        <div class="card-name">Công Chúa Tuyết</div>
+        <div class="card-tag">Lấp lánh diệu kỳ</div>
+      </div>
+      <div class="card-cta">Chọn →</div>
+    </button>
+
+    <button class="theme-card theme-kawaii" data-theme="sanrio">
+      <div class="card-bg"></div>
+      <div class="card-emoji">🎀</div>
+      <div class="card-content">
+        <div class="card-name">Mèo Kawaii</div>
+        <div class="card-tag">Siêu cute, siêu xinh</div>
+      </div>
+      <div class="card-cta">Chọn →</div>
+    </button>
+  </div>
+
+  <div class="status-bar" id="status-bar">Đang kết nối camera...</div>
+</section>
+
+<!-- ===== Screen 2: Countdown ===== -->
+<section id="screen-countdown" class="screen">
+  <div class="countdown-wrap">
+    <div class="countdown-label">Sẵn sàng tạo dáng nha!</div>
+    <div class="countdown-num" id="countdown">3</div>
+    <div class="countdown-hint" id="countdown-hint">📸 Nhìn vào máy ảnh nè</div>
+  </div>
+</section>
+
+<!-- ===== Screen 3: Processing ===== -->
+<section id="screen-processing" class="screen">
+  <div class="processing-wrap">
+    <div class="cute-spinner">
+      <div class="spinner-ring"></div>
+      <div class="spinner-emoji">📸</div>
+    </div>
+    <p class="processing-text">Đang phù phép ảnh thật xinh...</p>
+    <p class="processing-sub">~ chờ xíu thôi nè ~</p>
+  </div>
+</section>
+
+<!-- ===== Screen 4: Result ===== -->
+<section id="screen-result" class="screen">
+  <div class="result-grid">
+    <div class="result-photo-wrap">
+      <div class="polaroid">
+        <img id="result-photo" alt="Photo">
+      </div>
+      <div class="confetti" id="confetti"></div>
+    </div>
+
+    <div class="result-side">
+      <div class="result-headline">🎉 Đẹp tuyệt vời!</div>
+
+      <div class="qr-box">
+        <img id="result-qr" class="qr-img" alt="QR">
+        <div class="qr-label">📱 Quét để lưu ảnh<br>về điện thoại</div>
+      </div>
+
+      <div class="action-row">
+        <button class="btn btn-primary" id="btn-print">
+          <span class="btn-emoji">🖨️</span> In Ảnh
+        </button>
+        <button class="btn btn-secondary" id="btn-again">
+          <span class="btn-emoji">🔁</span> Chụp Lại
+        </button>
+      </div>
+
+      <div class="print-status" id="print-status"></div>
+    </div>
+  </div>
+</section>
+
+<script src="/static/app.js"></script>
+</body>
+</html>
