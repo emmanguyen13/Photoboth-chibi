@@ -90,7 +90,8 @@ async def capture(theme: str = Query("dinosaur"), print_copies: int = Query(0)) 
     )
 
     photo_id, _ = storage.save_local(final_jpeg)
-    public_url = storage.upload_and_get_url(final_jpeg, photo_id)
+    storage.upload_and_get_url(final_jpeg, photo_id)
+    public_url = storage.get_qr_target(photo_id)
 
     print_result = None
     if print_copies > 0:
@@ -120,8 +121,9 @@ async def qr(photo_id: str = Query(...)) -> Response:
     path = OUTPUT / f"{photo_id}.jpg"
     if not path.exists():
         raise HTTPException(404, "Photo not found")
-    public_url = storage.upload_and_get_url(path.read_bytes(), photo_id)
-    return Response(content=storage.make_qr(public_url), media_type="image/png")
+    storage.upload_and_get_url(path.read_bytes(), photo_id)
+    target_url = storage.get_qr_target(photo_id)
+    return Response(content=storage.make_qr(target_url), media_type="image/png")
 
 
 @app.get("/photo/{photo_id}", response_class=HTMLResponse)

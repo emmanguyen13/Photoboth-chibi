@@ -105,23 +105,53 @@ Nếu máy chị không nhận, chị paste output của `gphoto2 --auto-detect`
 
 **Lưu ý cho PIXMA:** in ảnh chậm hơn Selphy (~30 giây/ảnh) nên khách phải xếp hàng. Selphy chỉ ~50 giây/ảnh nhưng máy chuyên dụng nên ổn định hơn.
 
-### C. QR code mode LOCAL (mặc định, không cần internet)
+### C. QR code — chọn 1 trong 2 mode
 
-App tự động dò IP nội bộ của máy Mac. Khi khách quét QR:
-1. Khách kết nối WiFi sự kiện
-2. Quét QR → trang web hiện ra với ảnh + nút "Tải về máy"
-3. Tải xong là ảnh nằm trong Photos của khách
+#### 🌟 Mode B (recommend): Vercel + Supabase — QR sống mãi sau sự kiện
 
-**Cần làm:** Chia sẻ password WiFi cho khách (in lên 1 bảng nhỏ đặt cạnh photobooth: "📶 WiFi: [tên] / [pass] — Quét QR sau khi kết nối nha!")
+Setup 1 lần (~15 phút), khách quét QR ở đâu cũng được, ảnh giữ vĩnh viễn.
 
-**Kiểm tra IP đúng chưa:**
-```bash
-ipconfig getifaddr en0   # IP WiFi (Mac thường là en0)
+**Bước 1 — Tạo Supabase:**
+1. https://supabase.com → New project (free)
+2. Settings → API → copy `URL` và `anon public key`
+3. Storage → New bucket → tên `photobooth` → Public ✓
+
+**Bước 2 — Deploy `web/` lên Vercel:**
+1. https://vercel.com → Add New Project → Import repo `Photoboth-chibi` từ GitHub
+2. **Root Directory: `web`** (quan trọng!)
+3. Environment Variables, thêm 4 biến:
+   ```
+   NEXT_PUBLIC_SUPABASE_URL = https://xxxxx.supabase.co
+   NEXT_PUBLIC_SUPABASE_BUCKET = photobooth
+   NEXT_PUBLIC_EVENT_NAME = Sinh Nhật Vui Vẻ
+   NEXT_PUBLIC_EVENT_HASHTAG = #happybirthday
+   ```
+4. Deploy → đợi ~2 phút → copy URL (ví dụ `photoboth-chibi.vercel.app`)
+
+**Bước 3 — Link 2 thứ trong `.env` local:**
+```env
+GALLERY_URL=https://photoboth-chibi.vercel.app
+SUPABASE_URL=https://xxxxx.supabase.co
+SUPABASE_KEY=eyJ...
+SUPABASE_BUCKET=photobooth
 ```
 
-Sau khi server chạy, mở `/api/status` xem IP đang trỏ. Nếu sai router, thêm `PUBLIC_URL=http://192.168.x.x:8000` vào `.env` để override.
+→ Khi chụp, ảnh tự upload Supabase, QR trỏ Vercel page. Khách quét ở 4G hay WiFi đều xem + tải được.
 
-**Optional — QR cloud (khách giữ được ảnh sau sự kiện):** uncomment block SUPABASE trong `.env.example`, tạo project free tại supabase.com.
+#### 🏠 Mode A: Local IP — đơn giản, không internet
+
+Để trống `GALLERY_URL` và Supabase. App tự dò IP nội bộ. Khách phải:
+1. Kết nối WiFi sự kiện
+2. Quét QR → trang web mobile-friendly hiện ảnh + nút tải
+
+**In bảng WiFi đặt cạnh booth:** "📶 WiFi: [tên] / [pass] — Quét QR sau khi kết nối"
+
+**Kiểm tra IP:**
+```bash
+ipconfig getifaddr en0   # Mac WiFi thường là en0
+```
+
+Sau sự kiện QR die (vì IP local). Phù hợp tiệc nhỏ, ít tốn config.
 
 ### D. Hiển thị full-screen trên iPad/touchscreen
 
@@ -161,24 +191,44 @@ Muốn thêm theme mới? Tạo folder mới trong `assets/frames/` + thêm card
 
 ```
 photobooth/
-├── backend/
+├── backend/             # 🐍 Python — chạy local trên Mac (chụp + in)
 │   ├── main.py          # FastAPI app
 │   ├── camera.py        # gphoto2 / webcam
 │   ├── compositor.py    # Pillow overlay
-│   ├── storage.py       # Supabase + QR
-│   ├── printer.py       # CUPS lp
+│   ├── storage.py       # Supabase upload + QR
+│   ├── printer.py       # CUPS lp (Canon)
 │   └── build_frames.py  # SVG → PNG
-├── frontend/
-│   ├── index.html       # Touchscreen UI
+├── frontend/            # 🖼️ UI cảm ứng — chạy trên iPad/touchscreen
+│   ├── index.html
 │   ├── style.css
 │   └── app.js
+├── web/                 # 🌐 Next.js — deploy lên Vercel cho khách quét QR
+│   ├── app/
+│   │   ├── page.tsx           # Landing
+│   │   └── photo/[id]/page.tsx # Photo viewer
+│   ├── package.json
+│   └── README.md
 ├── assets/
 │   └── frames/
 │       ├── dinosaur/frame.svg
 │       ├── frozen/frame.svg
 │       └── sanrio/frame.svg
-├── output/              # Ảnh đã chụp lưu vào đây
-├── requirements.txt
+├── output/              # Ảnh chụp lưu vào đây (gitignored)
+├── requirements.txt     # Python deps
 ├── .env.example
 └── README.md
+```
+
+## 🌊 Data flow (Mode B)
+
+```
+   📷 DSLR (USB)
+       ↓
+  🐍 Mac local app  ─upload→  ☁️ Supabase Storage
+       ↓                            ↑
+  🖨️ Canon printer            (lưu vĩnh viễn)
+       ↓                            ↑
+  📺 Touchscreen UI         🌐 Vercel page ←─ 📱 Khách quét QR
+       ↓
+   🔗 QR code → vercel.app/photo/{id}
 ```

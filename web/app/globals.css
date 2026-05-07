@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body {
+    background:
+      radial-gradient(ellipse at top left, #FFE0EC 0%, transparent 60%),
+      radial-gradient(ellipse at top right, #C8E8FF 0%, transparent 60%),
+      radial-gradient(ellipse at bottom, #FFF4D6 0%, transparent 60%),
+      linear-gradient(135deg, #FFFCF7 0%, #FFF7F0 100%);
+    color: #2D1B4E;
+    min-height: 100vh;
+    font-weight: 600;
+  }
+}
+
+.float {
+  position: absolute;
+  font-size: 48px;
+  opacity: 0.25;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.08));
+  pointer-events: none;
+}
+
+.polaroid {
+  background: #fff;
+  padding: 16px 16px 60px;
+  border-radius: 12px;
+  box-shadow: 0 16px 48px rgba(45, 27, 78, 0.18);
+  transform: rotate(-2deg);
+  display: inline-block;
+}
+.polaroid img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}

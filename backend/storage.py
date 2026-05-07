@@ -38,6 +38,28 @@ def get_public_url() -> str:
     return f"http://{_detect_lan_ip()}:{port}"
 
 
+def get_qr_target(photo_id: str) -> str:
+    """Pick the URL the QR code should encode.
+
+    Priority:
+      1. GALLERY_URL (Vercel) if set → e.g. https://photoboth-chibi.vercel.app/photo/<id>
+      2. Supabase public URL (direct .jpg)
+      3. Local IP fallback
+    """
+    gallery = os.getenv("GALLERY_URL", "").strip().rstrip("/")
+    if gallery and "xxxxx" not in gallery:
+        return f"{gallery}/photo/{photo_id}"
+    return upload_and_get_url_by_id(photo_id)
+
+
+def upload_and_get_url_by_id(photo_id: str) -> str:
+    """Return the canonical photo URL (Supabase public or local fallback)."""
+    path = OUTPUT_DIR / f"{photo_id}.jpg"
+    if not path.exists():
+        return f"{get_public_url()}/photo/{photo_id}"
+    return upload_and_get_url(path.read_bytes(), photo_id)
+
+
 def _supabase_client():
     url = os.getenv("SUPABASE_URL")
     key = os.getenv("SUPABASE_KEY")
